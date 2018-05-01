@@ -58,7 +58,7 @@ public class PostgreSQLDAO {
         return persons;
     }
 
-    public int insertPerson(String name, String middlename, String surname, String dob, String sex){
+    public String insertPerson(String name, String middlename, String surname, String dob, String sex){
         /*this.query = "INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES " +
                 "('"+name+"','"+middlename+"','"+surname+"','"+dob+"','"+sex+"')";
         List<Person> persons = new ArrayList<>();*/
@@ -85,7 +85,7 @@ public class PostgreSQLDAO {
         } catch (SQLException ex) {
             Logger.getLogger(PostgreSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return id;
+        return String.valueOf(id);
     }
 
     public String updatePerson(String id, String name, String middlename, String surname, String dob, String sex) {
