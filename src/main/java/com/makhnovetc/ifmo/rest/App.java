@@ -2,6 +2,7 @@ package com.makhnovetc.ifmo.rest;
 
 import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
+import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 import org.glassfish.grizzly.http.server.HttpServer;
 
@@ -15,7 +16,7 @@ public class App {
     public static void main(String[] args) {
         HttpServer server = null;
         try {
-            ResourceConfig resourceConfig = new ClassNamesResourceConfig(PersonResource.class);
+            ResourceConfig resourceConfig = new PackagesResourceConfig(PersonResource.class.getPackage().getName());
             server = GrizzlyServerFactory.createHttpServer(BASE_URI, resourceConfig);
             server.start();
             System.in.read();
